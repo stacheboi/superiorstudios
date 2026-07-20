@@ -24,6 +24,7 @@ body {
   color: var(--ink);
   font-family: "Inter", "Segoe UI", Arial, sans-serif;
   line-height: 1.5;
+  overflow-x: hidden;
 }
 
 img {
@@ -167,6 +168,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  max-width: 100%;
   min-height: 44px;
   padding: 11px 18px;
   border: 1px solid var(--ink);
@@ -278,6 +280,10 @@ h3 {
   margin-top: 14px;
 }
 
+.photo-meta > div {
+  min-width: 0;
+}
+
 .text-button {
   min-width: max-content;
   padding: 0;
@@ -319,6 +325,7 @@ input,
 select,
 textarea {
   width: 100%;
+  min-width: 0;
   min-height: 44px;
   padding: 10px 12px;
   border: 1px solid #c9c5c0;
@@ -477,6 +484,10 @@ textarea {
     display: grid;
   }
 
+  .site-header {
+    gap: 12px;
+  }
+
   .nav {
     justify-content: start;
   }
@@ -484,6 +495,11 @@ textarea {
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
+    padding-top: 34px;
+  }
+
+  .split-section {
+    grid-template-columns: 1fr;
   }
 
   .hero-copy {
@@ -502,9 +518,59 @@ textarea {
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
+  .site-header {
+    position: static;
+    padding: 14px 16px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
   .nav {
-    gap: 8px 14px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px 12px;
+    width: 100%;
+    font-size: 13px;
+  }
+
+  .nav a {
+    min-width: 0;
+  }
+
+  .hero {
+    gap: 22px;
+    padding: 28px 16px 34px;
+  }
+
+  h1 {
+    margin-bottom: 16px;
+    font-size: clamp(38px, 12vw, 52px);
+  }
+
+  h2 {
+    font-size: clamp(30px, 10vw, 42px);
+  }
+
+  .hero-copy p:not(.eyebrow),
+  .section-heading p,
+  .service-intro p,
+  .text-section p {
+    font-size: 16px;
+  }
+
+  .hero-actions,
+  .contact-strip {
+    align-items: stretch;
+  }
+
+  .hero-actions .button,
+  .form-panel .button,
+  .contact-strip .button,
+  .dialog-meta .button {
+    width: 100%;
   }
 
   .gallery-grid,
@@ -514,11 +580,55 @@ textarea {
     grid-template-columns: 1fr;
   }
 
+  .section,
+  .film-section {
+    padding: 52px 16px;
+  }
+
+  .section-heading {
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .photo-meta {
+    display: grid;
+    gap: 8px;
+  }
+
+  .text-button {
+    min-width: 0;
+    justify-self: start;
+  }
+
   .form-panel {
-    padding: 18px;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .contact-strip {
+    padding: 42px 16px;
+  }
+
+  .site-footer {
+    gap: 6px;
+    padding: 20px 16px;
+  }
+
+  .photo-dialog {
+    width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+  }
+
+  .photo-dialog img {
+    max-height: 58dvh;
   }
 
   .dialog-meta {
     display: grid;
+    padding: 16px;
+  }
+
+  .dialog-meta h2 {
+    font-size: 24px;
   }
 }
