@@ -304,8 +304,13 @@ h3 {
   align-items: start;
 }
 
+.split-section > * {
+  min-width: 0;
+}
+
 .form-panel {
   display: grid;
+  width: 100%;
   gap: 18px;
   padding: 24px;
   background: var(--soft);
@@ -499,7 +504,12 @@ textarea {
   }
 
   .split-section {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 32px;
+  }
+
+  .split-section .form-panel {
+    max-width: 100%;
   }
 
   .hero-copy {
