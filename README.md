@@ -1,7 +1,5 @@
 # Superior Photo Studio
 
-Minimal static photography website with a print inquiry flow and film developing order form.
-
 ## Open Locally
 
 Open `index.html` directly in a browser, or serve the folder with any static server.
