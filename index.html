@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Superior Studios</title>
+    <meta
+      name="description"
+      content="Minimal photography portfolio with print inquiries and film developing order requests."
+    />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Superior Photo Studio home">
+        <span>Superior</span>
+        <span>Photo Studio</span>
+      </a>
+      <nav class="nav" aria-label="Primary navigation">
+        <a href="#gallery">Gallery</a>
+        <a href="#prints">Prints</a>
+        <a href="#film">Film Development</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Fine art photography and analog processing</p>
+          <h1 id="hero-title">
+            Quiet images, printed and processed with care.
+          </h1>
+          <p>
+            Browse selected photographs, request archival prints, or start a
+            mail-in or dropoff order for film developing.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#gallery">View Gallery</a>
+            <a class="button secondary" href="#film">Develop Film</a>
+          </div>
+        </div>
+        <figure class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1600&q=85"
+            alt="A photographer holding a camera in soft natural light"
+          />
+          <figcaption>
+            Available print editions and film services by inquiry.
+          </figcaption>
+        </figure>
+      </section>
+
+      <section id="gallery" class="section" aria-labelledby="gallery-title">
+        <div class="section-heading">
+          <p class="eyebrow">Gallery</p>
+          <h2 id="gallery-title">Selected Work</h2>
+          <p>
+            Small runs of quiet landscapes, interiors, and street photographs.
+          </p>
+        </div>
+        <div id="gallery-grid" class="gallery-grid" aria-live="polite"></div>
+      </section>
+
+      <section
+        id="prints"
+        class="section split-section"
+        aria-labelledby="prints-title"
+      >
+        <div class="section-heading compact">
+          <p class="eyebrow">Prints</p>
+          <h2 id="prints-title">Request a Print</h2>
+          <p>
+            Prints are reviewed manually before invoicing so paper, size,
+            edition availability, and shipping can be confirmed.
+          </p>
+        </div>
+        <form
+          id="print-form"
+          class="form-panel"
+          name="print-request"
+          method="post"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="print-request" />
+          <p class="hidden">
+            <label>Do not fill this out <input name="bot-field" /></label>
+          </p>
+          <label>
+            Photograph
+            <select id="print-photo" name="photograph" required>
+              <option value="">Select photograph</option>
+            </select>
+          </label>
+          <div class="field-grid">
+            <label>
+              Print size
+              <select name="print-size" required>
+                <option value="">Select size</option>
+                <option>8 x 10 in</option>
+                <option>11 x 14 in</option>
+                <option>16 x 20 in</option>
+                <option>Custom size</option>
+              </select>
+            </label>
+            <label>
+              Quantity
+              <input type="number" name="quantity" min="1" value="1" required />
+            </label>
+          </div>
+          <div class="field-grid">
+            <label>
+              Name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+          </div>
+          <label>
+            Delivery preference
+            <select name="delivery-preference" required>
+              <option value="">Select delivery</option>
+              <option>Ship to me</option>
+              <option>Local pickup</option>
+              <option>Discuss options</option>
+            </select>
+          </label>
+          <label>
+            Notes
+            <textarea
+              name="notes"
+              rows="4"
+              placeholder="Paper preference, framing plans, deadline, or shipping city"
+            ></textarea>
+          </label>
+          <button class="button primary" type="submit">
+            Send Print Request
+          </button>
+          <p class="form-note" data-form-status></p>
+        </form>
+      </section>
+
+      <section id="film" class="film-section" aria-labelledby="film-title">
+        <div class="service-intro">
+          <p class="eyebrow">Film Development</p>
+          <h2 id="film-title">Mail in or drop off your rolls.</h2>
+          <p>
+            Submit your order details first. You will receive confirmation,
+            delivery instructions, and a manual invoice before processing
+            begins.
+          </p>
+        </div>
+        <div class="service-grid" aria-label="Film developing details">
+          <div>
+            <span class="step">01</span>
+            <h3>Send the order</h3>
+            <p>
+              Tell us what you shot, how many rolls, and whether you need scans
+              or prints.
+            </p>
+          </div>
+          <div>
+            <span class="step">02</span>
+            <h3>Confirm intake</h3>
+            <p>
+              We reply with mail-in or dropoff instructions and confirm service
+              details.
+            </p>
+          </div>
+          <div>
+            <span class="step">03</span>
+            <h3>Develop and deliver</h3>
+            <p>
+              Typical turnaround is 3-7 business days after the film is
+              received.
+            </p>
+          </div>
+        </div>
+        <form
+          id="film-form"
+          class="form-panel film-form"
+          name="film-developing-order"
+          method="post"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
+          <input type="hidden" name="form-name" value="film-developing-order" />
+          <p class="hidden">
+            <label>Do not fill this out <input name="bot-field" /></label>
+          </p>
+          <div class="field-grid">
+            <label>
+              Name
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" autocomplete="email" required />
+            </label>
+          </div>
+          <div class="field-grid three">
+            <label>
+              Rolls
+              <input
+                type="number"
+                name="roll-count"
+                min="1"
+                value="1"
+                required
+              />
+            </label>
+            <label>
+              Format
+              <select name="film-format" required>
+                <option value="">Select format</option>
+                <option>35mm</option>
+                <option>120</option>
+                <option>Disposable camera</option>
+                <option>Mixed formats</option>
+              </select>
+            </label>
+            <label>
+              Film type
+              <select name="film-type" required>
+                <option value="">Select type</option>
+                <option>Color negative</option>
+                <option>Black and white</option>
+                <option>Slide film</option>
+                <option>Unsure</option>
+              </select>
+            </label>
+          </div>
+          <div class="field-grid three">
+            <label>
+              Scan preference
+              <select name="scan-preference" required>
+                <option value="">Select scans</option>
+                <option>Standard scans</option>
+                <option>High-resolution scans</option>
+                <option>No scans</option>
+              </select>
+            </label>
+            <label>
+              Prints
+              <select name="print-preference" required>
+                <option value="">Select prints</option>
+                <option>No prints</option>
+                <option>4 x 6 proof prints</option>
+                <option>Custom prints</option>
+              </select>
+            </label>
+            <label>
+              Intake method
+              <select name="intake-method" required>
+                <option value="">Select intake</option>
+                <option>Mail-in</option>
+                <option>Local dropoff</option>
+                <option>Need guidance</option>
+              </select>
+            </label>
+          </div>
+          <label>
+            Return delivery
+            <select name="return-delivery" required>
+              <option value="">Select return method</option>
+              <option>Email scans only</option>
+              <option>Ship negatives and scans</option>
+              <option>Local pickup</option>
+            </select>
+          </label>
+          <label>
+            Notes
+            <textarea
+              name="notes"
+              rows="4"
+              placeholder="Push/pull requests, deadlines, camera notes, or return address"
+            ></textarea>
+          </label>
+          <button class="button primary" type="submit">
+            Send Developing Order
+          </button>
+          <p class="form-note" data-form-status></p>
+        </form>
+      </section>
+
+      <section
+        id="about"
+        class="section text-section"
+        aria-labelledby="about-title"
+      >
+        <p class="eyebrow">About</p>
+        <h2 id="about-title">A small studio for slow images.</h2>
+        <p>
+          Superior Photo Studio makes limited photographic prints and handles
+          analog film developing with a simple, human ordering process.
+        </p>
+      </section>
+
+      <section
+        id="contact"
+        class="contact-strip"
+        aria-labelledby="contact-title"
+      >
+        <div>
+          <p class="eyebrow">Contact</p>
+          <h2 id="contact-title">Questions before ordering?</h2>
+        </div>
+        <a class="button secondary" href="mailto:studio@example.com"
+          >mike@superiorstudio.com</a
+        >
+      </section>
+    </main>
+
+    <dialog
+      id="photo-dialog"
+      class="photo-dialog"
+      aria-labelledby="dialog-title"
+    >
+      <button
+        class="icon-button"
+        type="button"
+        data-close-dialog
+        aria-label="Close image viewer"
+      >
+        x
+      </button>
+      <img id="dialog-image" alt="" />
+      <div class="dialog-meta">
+        <div>
+          <h2 id="dialog-title"></h2>
+          <p id="dialog-detail"></p>
+        </div>
+        <button class="button primary" type="button" data-dialog-print>
+          Request Print
+        </button>
+      </div>
+    </dialog>
+
+    <footer class="site-footer">
+      <span>Superior Photo Studio</span>
+      <span>Prints and Film Development</span>
+    </footer>
+
+    <script src="gallery-data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
